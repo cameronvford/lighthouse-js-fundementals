@@ -1,21 +1,6 @@
-/*
- * Programming Quiz: JuliaJames (4-1)
- */
-
-var x = 1;
-
-while (x < 21) {
-    if (x % 3 !== 0 && x % 5 !== 0){
-        console.log(x);
-        x = x + 1;
-    } else if (x % 3 !== 0 && x % 5 === 0){
-        console.log('James');
-        x = x + 1;
-    } else if (x % 3 === 0 && x % 5 !== 0){
-        console.log('Julia');
-        x = x + 1;
-    } else {
-        console.log('JuliaJames');
-        x = x + 1;
-    }
-}
+function isThisWorking(input) {
+    console.log("Printing: isThisWorking was called and " + input + " was passed in as an argument.");
+    return "Returning: I am returning this string!";
+  }
+  
+  isThisWorking(3);
