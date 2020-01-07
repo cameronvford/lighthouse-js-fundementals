@@ -1,6 +1,23 @@
-function isThisWorking(input) {
-    console.log("Printing: isThisWorking was called and " + input + " was passed in as an argument.");
-    return "Returning: I am returning this string!";
-  }
-  
-  isThisWorking(3);
+/*
+ * Programming Quiz: Bank Accounts 1 (7-3)
+ */
+
+var savingsAccount = {
+  balance: 1000,
+  interestRatePercent: 1,
+  deposit: function addMoney(amount) {
+      if (amount > 0) {
+          savingsAccount.balance += amount;
+      }
+  },
+  withdraw: function removeMoney(amount) {
+      var verifyBalance = savingsAccount.balance - amount;
+      if (amount > 0 && verifyBalance >= 0) {
+          savingsAccount.balance -= amount;
+      }
+  },
+  summary: function printAccountSummary() {
+      return 'Your balance is currently $' + savingsAccount.balance + ' and your interest rate is ' + savingsAccount.interestRatePercent + '%.';
+  },
+};
+console.log(printAccountSummary());
