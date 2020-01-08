@@ -1,23 +1,23 @@
-/*
- * Programming Quiz: Bank Accounts 1 (7-3)
- */
+function merge(array1, array2){
+    let newArray = [];
+    while(array1.length + array2.length > 0){
+        if(array1.length === 0 && array2.length > 0){
+            newArray = newArray.concat(array2);
+            array2 = [];
+        } else if (array1.length > 0 && array2.length === 0){
+            newArray = newArray.concat(array1);
+            array1 = [];
+        } else if (array1[0] <= array2[0]){
+            newArray.push(array1[0]);
+            array1.shift();
+        } else if (array1[0] > array2[0]){
+            newArray.push(array2[0]);
+            array2.shift();
+        }
+    }
+    return newArray;
+}
 
-var savingsAccount = {
-  balance: 1000,
-  interestRatePercent: 1,
-  deposit: function addMoney(amount) {
-      if (amount > 0) {
-          savingsAccount.balance += amount;
-      }
-  },
-  withdraw: function removeMoney(amount) {
-      var verifyBalance = savingsAccount.balance - amount;
-      if (amount > 0 && verifyBalance >= 0) {
-          savingsAccount.balance -= amount;
-      }
-  },
-  summary: function printAccountSummary() {
-      return 'Your balance is currently $' + savingsAccount.balance + ' and your interest rate is ' + savingsAccount.interestRatePercent + '%.';
-  },
-};
-console.log(printAccountSummary());
+console.log(merge([ 4, 5, 6 ], [ 1, 2, 3, 4 ]), "=?", [ 1, 2, 3, 4, 4, 5, 6 ]);
+console.log(merge([ 4 ], [ 2, 5, 8 ]), "=?", [ 2, 4, 5, 8 ]);
+console.log(merge([ 1, 2, 6 ], []), "=?", [ 1, 2, 6 ]);
